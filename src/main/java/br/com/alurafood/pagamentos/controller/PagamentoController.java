@@ -18,7 +18,7 @@ import java.net.URI;
 @RequestMapping("/pagamentos")
 public class PagamentoController {
 
-    //injecao de dependencia do spring
+
     @Autowired
     private PagamentoService pagamentoService;
 
