@@ -66,4 +66,15 @@ public class PagamentoService {
         pagamentoRepository.save(pagamento.get());
         pedido.atualizaPagamento(pagamento.get().getPedidoId());
     }
+
+    public void alterarstatus (Long id){
+        Optional<Pagamento> pagamento = pagamentoRepository.findById(id);
+
+        if(!pagamento.isPresent()){
+            throw new EntityNotFoundException();
+        }
+        pagamento.get().setStatus(Status.CONFIRMADO);
+        pagamentoRepository.save(pagamento.get());
+    }
+
 }
